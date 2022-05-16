@@ -1,0 +1,48 @@
+#include <SoftwareSerial.h>
+int data;
+int lamba1=13;
+int lamba2=12;
+SoftwareSerial btbaglan(10,11);
+/* String  isim ="zehra";
+int sifre= 4340;
+String uart="9600";*/
+
+
+void setup (){
+  pinMode(lamba1,OUTPUT);
+  pinMode(lamba2,OUTPUT);
+  btbaglan.begin(9600);
+  /*
+   btbaglan.   print("AT+NAME=");
+   btbaglan.print(isim);
+   btbaglan.print("AT+PSWD=");
+   btbaglan.print(sifre);
+   btbaglan.print("AT+UART=");
+   btbaglan.print(uart); 
+   */
+}
+
+void loop() {
+  while (btbaglan.available()){
+    data=btbaglan.read();
+    if ( data=='0')
+    digitalWrite(lamba1,1);
+
+
+    if ( data=='1')
+    digitalWrite(lamba1,0);
+
+    if ( data=='2')
+    digitalWrite(lamba2,1);
+
+    if ( data=='3')
+    digitalWrite(lamba2,0);
+
+
+    delay(100);
+  }}
+
+    
+    
+    
+  
